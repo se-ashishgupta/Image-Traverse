@@ -10,7 +10,7 @@ const Header = () => {
     // Nav item 
     const navItem = {
         title: "Github",
-        path: "https://github.com/se-ashishgupta/SquareYard_Assignment"
+        path: "https://github.com/se-ashishgupta/Image-Traverse"
     };
 
     return (
