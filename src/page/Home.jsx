@@ -1130,7 +1130,7 @@ const Home = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getRandomPhotos());
+        // dispatch(getRandomPhotos());
     }, [dispatch]);
 
     return (
@@ -1142,16 +1142,15 @@ const Home = () => {
                 <div className='p-4 md:p-16 sm:w-[80%] space-y-2 md:space-y-4 lg:space-y-6'>
                     {/* Heading  */}
 
-                    <p className='text-xl font-semibold text-white'>Welcome To</p>
+                    <p className='text-xl font-semibold text-white animate-slideLeft'>Welcome To</p>
 
-
-                    <div>
+                    <div className='animate-bounceUpDown'>
                         <h1 className='text-5xl sm:text-6xl font-extrabold text-white tracking-wider'>Image</h1>
                         <h1 className='text-5xl sm:text-6xl font-extrabold text-white tracking-wider'>Traverse</h1>
                     </div>
 
                     {/* Description  */}
-                    <p className='sm:text-xl text-white font-medium'>ImageTraverse is your gateway to a vast and visually captivating universe. Explore, find, and be inspired with ImageTraverse.</p>
+                    <p className='sm:text-xl text-white font-medium animate-slideLeft'>ImageTraverse is your gateway to a vast and visually captivating universe. Explore, find, and be inspired with ImageTraverse.</p>
 
                 </div>
 

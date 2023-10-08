@@ -25,28 +25,30 @@ const Search = () => {
         backgroundRepeat: "no-repeat"
     };
 
-    useEffect(() => {
-        if (query == "") {
-            dispatch(searchPhotos('random'));
-            console.log("ashsih");
-        }
-    }, [query]);
+    // useEffect(() => {
+    //     if (query == "") {
+    //         dispatch(searchPhotos('random'));
+    //         console.log("ashsih");
+    //     }
+    // }, [query]);
 
     return (
         <div>
 
             {/* Search Input  */}
             <div className='min-h-[75vh] w-full flex items-center justify-center shadow-xl' style={headerBackgroundStyle}>
-                <form onSubmit={searchHandler} className='w-[90%] sm:w-[60%]'>
+                <div className='w-[90%] sm:w-[60%] animate-slideUp '>
                     <div className='relative flex items-center text-gray-400 focus-within:text-gray-600'>
                         <figure className='text-2xl absolute ml-3 pointer-events-none '><AiOutlineSearch /></figure>
-                        <input type="text" name='serach' placeholder='Search Now...' autoComplete='off' aria-label='Search Now...'
-                            className='w-full pr-3 pl-12 py-2 placeholder-gray-500 text-black rounded-lg outline-none ring-1 ring-gray-300 focus:shadow-lg '
-                            value={query}
-                            onChange={(e) => setQuery(e.target.value)}
-                        />
+                        <form onSubmit={searchHandler} className='w-full' >
+                            <input type="text" name='serach' placeholder='Search Now...' autoComplete='off'
+                                className='w-full pr-3 pl-12 py-2 placeholder-gray-500 text-black rounded-lg outline-none ring-1 ring-gray-300 focus:shadow-lg '
+                                value={query}
+                                onChange={(e) => setQuery(e.target.value)}
+                            />
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
 
 

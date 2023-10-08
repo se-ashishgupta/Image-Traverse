@@ -30,7 +30,7 @@ const Header = () => {
             <div className='fixed top-0 left-0 bg-white w-full h-[4rem] shadow-xl px-4 md:px-10 flex items-center z-20 justify-between'>
 
                 {/* Logo  */}
-                <Link to={"/"} className='flex items-center gap-2' onClick={() => setActiveNav("/")} >
+                <Link to={"/"} className='flex items-center gap-2 animate-slideRight' onClick={() => setActiveNav("/")} >
                     <img src={logo} alt="logo" className='w-[1.5rem] sm:w-[2rem]' />
                     <h1 className='text-lg sm:text-2xl font-extrabold'>Image Traverse</h1>
                 </Link>
