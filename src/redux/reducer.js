@@ -8,7 +8,7 @@ export const photoReducer = createReducer({ loading: true }, {
 
     randomPhotoSuccess: (state, action) => {
         state.loading = false;
-        state.randomdata = action.payload.data;
+        state.data = action.payload.data;
     },
 
     randomPhotoFail: (state, action) => {
@@ -22,7 +22,7 @@ export const photoReducer = createReducer({ loading: true }, {
 
     searchSuccess: (state, action) => {
         state.loading = false;
-        state.searchdata = action.payload.data;
+        state.data = action.payload.data.results;
     },
 
     searchFail: (state, action) => {

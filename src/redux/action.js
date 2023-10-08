@@ -38,10 +38,9 @@ export const searchPhotos = (query, page = 1) => async (dispatch) => {
         const res = {
             data,
         };
-
+        console.log(data);
 
         dispatch({ type: "searchSuccess", payload: res });
-
 
     } catch (error) {
 

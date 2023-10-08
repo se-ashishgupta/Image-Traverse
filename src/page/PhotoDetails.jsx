@@ -7,7 +7,6 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchPhotoById } from '../redux/action';
 import Loader from '../components/Loader';
-
 import Share from '../components/Share';
 
 const PhotoDetails = () => {
@@ -79,7 +78,7 @@ const PhotoDetails = () => {
 
 
                         {/* Photo View  */}
-                        <div className='max-w-full h-[75vh] px-2 py-2 flex items-center justify-center
+                        <div className='max-w-full h-[50vh] sm:h-[70vh] px-2 py-2 flex items-center justify-center
                         '>
                             <img src={photodata.urls.full} alt={photodata.alt_description} className='max-w-full object-contain h-full  rounded-xl' />
                         </div>
@@ -173,13 +172,13 @@ const PhotoDetails = () => {
                                 {
                                     photodata.related_collections.results && photodata.related_collections.results.length > 0 ?
 
-                                        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-6 '>
+                                        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  sm:gap-12 '>
                                             {
                                                 photodata.related_collections.results.map((item, index) => (
 
                                                     <Link key={index} to={`/photo/${item.cover_photo.id}`}>
 
-                                                        <div className='w-full h-[25rem] shadow-lg group overflow-hidden rounded-xl'>
+                                                        <div className='w-full h-[20rem] shadow-lg group overflow-hidden rounded-xl'>
                                                             <img src={item.cover_photo.urls.full} alt={item.title} className='w-full h-full object-cover group-hover:scale-110 transition-all duration-500' />
                                                         </div>
 

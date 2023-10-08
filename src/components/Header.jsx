@@ -3,21 +3,15 @@ import logo from "../assets/logo.svg";
 import { Link } from 'react-router-dom';
 import { BiMenuAltRight } from "react-icons/bi";
 import { GrFormClose } from "react-icons/gr";
+import { AiFillGithub } from "react-icons/ai";
 
 const Header = () => {
     const [openNav, setOpenNav] = useState(false);
-
     // Nav item 
-    const navItem = [
-        {
-            title: "Home",
-            path: "/"
-        },
-        {
-            title: "Search",
-            path: "/searchphoto"
-        }
-    ];
+    const navItem = {
+        title: "Github",
+        path: "https://github.com/se-ashishgupta/SquareYard_Assignment"
+    };
 
     return (
         <>
@@ -32,16 +26,13 @@ const Header = () => {
 
                 {/* Nav Item  */}
                 <div className='hidden sm:flex items-center gap-3 md:gap-5'>
-                    {
-                        navItem.map((item, index) => (
-                            <Link key={index} to={item.path} className={` text-2xl text-black font-medium`} >{item.title}</Link>
-                        ))
-                    }
+
+                    <Link target='blank' to={navItem.path} className={`text-xl text-black font-semibold flex items-center gap-1`} ><AiFillGithub />{navItem.title}</Link>
 
                 </div>
 
                 {/* Menu Icon  */}
-                <div onClick={() => setOpenNav(!openNav)} className='text-4xl cursor-pointer sm:hidden  shadow-md rounded-lg' >
+                <div onClick={() => setOpenNav(!openNav)} className='text-4xl p-1 cursor-pointer sm:hidden  shadow-md rounded-lg' >
                     <span className=''>
                         {openNav ? <GrFormClose /> : <BiMenuAltRight />}
                     </span>
@@ -50,12 +41,10 @@ const Header = () => {
             </div>
 
             {/* Phone Navbar  */}
-            <div className={`fixed top-0 right-0 w-full h-[25vh] bg-white z-10 pt-[5rem] p-6 ${openNav ? "" : "translate-y-[-100%]"} transition-all duration-300 flex flex-col gap-2`}>
-                {
-                    navItem.map((item, index) => (
-                        <Link key={index} className={`text-2xl border-b-2 text-black font-medium `} to={item.path} onClick={() => setOpenNav(false)}>{item.title}</Link>
-                    ))
-                }
+            <div className={`fixed top-0 right-0 w-full  bg-white z-10 pt-[5rem] p-6 ${openNav ? "" : "translate-y-[-100%]"} transition-all duration-300 flex flex-col gap-2 sm:translate-y-[-100%]`}>
+
+                <Link target='blank' to={navItem.path} onClick={() => setOpenNav(false)} className={`text-xl  border-b-2 text-black font-semibold flex items-center gap-1`} ><AiFillGithub />{navItem.title}</Link>
+
             </div>
         </>
     );
