@@ -3,7 +3,7 @@
 ![](src/assets/UI-Look.png)
 
 Weather App built with React.
-[Live Demo](https://square-yard-assignment.vercel.app)
+[Live Demo](https://image-traverse-unsplash.vercel.app)
 
 ## Tech Stack
 
