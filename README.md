@@ -7,7 +7,7 @@ Weather App built with React.
 
 ## Tech Stack
 
-**React, React-Router-Dom, Redux, JavaScript, Tailwind, React-Icons, Axios, React-Share**
+**React, React-Router-Dom, Redux, ReduxToolkit, JavaScript, Tailwind, React-Icons, Axios, React-Share**
 
 ## Features
 
@@ -32,7 +32,7 @@ git clone https://github.com/se-ashishgupta/Image-Traverse
 ```
 
 ```bash
-cd SquareYard_Assignment
+cd Image-Traverse
 npm install
 npm run dev
 ```
