@@ -5,6 +5,8 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { GrFormClose } from "react-icons/gr";
 
 const Header = () => {
+    const [openNav, setOpenNav] = useState(false);
+
     // Nav item 
     const navItem = [
         {
@@ -16,9 +18,6 @@ const Header = () => {
             path: "/searchphoto"
         }
     ];
-
-    const [openNav, setOpenNav] = useState(false);
-
 
     return (
         <>

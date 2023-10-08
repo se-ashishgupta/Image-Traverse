@@ -10,6 +10,8 @@ const Search = () => {
     const [query, setQuery] = useState("");
 
     const dispatch = useDispatch();
+
+    // Getting data from store 
     const { searchdata, loading } = useSelector(state => state.photos);
 
     const searchHandler = (e) => {
@@ -18,12 +20,12 @@ const Search = () => {
     };
 
 
-    // useEffect(() => {
-    //     if (query == "") {
-    //         dispatch(searchPhotos('random'));
-    //         console.log("ashsih");
-    //     }
-    // }, [query]);
+    useEffect(() => {
+        if (query == "") {
+            dispatch(searchPhotos('random'));
+            console.log("ashsih");
+        }
+    }, [query]);
 
     // Header Background Inline Style 
     const headerBackgroundStyle = {
@@ -54,8 +56,6 @@ const Search = () => {
 
             {/* List of Search Photos */}
             <div>
-
-
                 {
                     loading ? <Loader /> :
 
@@ -72,7 +72,7 @@ const Search = () => {
                             </div>
 
                             : <div className='min-h-[25vh] flex items-center justify-center '>
-                                <p className='text-xl font-bold'>Not Available, Search Again Now</p>
+                                <p className='text-xl font-bold'>No Image Found</p>
                             </div>
                 }
             </div>

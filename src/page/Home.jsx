@@ -7,6 +7,16 @@ import { getRandomPhotos } from '../redux/action';
 
 
 const Home = () => {
+    const dispatch = useDispatch();
+
+    // Getting data from store 
+    const { loading, randomdata } = useSelector(state => state.photos);
+
+    // Call to fetch Ranbdopm data 
+    useEffect(() => {
+        dispatch(getRandomPhotos());
+    }, [dispatch]);
+
     // Header Background Inline Style 
     const headerBackgroundStyle = {
         backgroundImage: `url(${homeBackground})`,
@@ -14,16 +24,6 @@ const Home = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat"
     };
-
-    // Getting data from store 
-    const { loading, randomdata } = useSelector(state => state.photos);
-
-    const dispatch = useDispatch();
-
-    // Call to fetch Ranbdopm data 
-    useEffect(() => {
-        // dispatch(getRandomPhotos());
-    }, [dispatch]);
 
     return (
         <div className='overflow-hidden'>

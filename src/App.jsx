@@ -10,14 +10,13 @@ import "./App.css";
 import Search from './page/Search';
 import Loader from './components/Loader';
 import toast, { Toaster } from "react-hot-toast";
-import { getRandomPhotos } from './redux/action';
 import ScrollToTop from './utils/ScrollToTop';
 
 const App = () => {
-
-
+  // Getting error from store 
   const { error } = useSelector(state => state.photos);
 
+  // Message popup whenever error found 
   useEffect(() => {
     if (error) {
       toast.error(error);

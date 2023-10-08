@@ -15,11 +15,10 @@ const PhotoDetails = () => {
     const [shareOpen, setShareOpen] = useState(false);
     const shareDropUpRef = useRef(null);
 
+    const dispatch = useDispatch();
 
     // Getting Data of Photo from Store
     const { loading, photodata } = useSelector(state => state.photos);
-
-    const dispatch = useDispatch();
 
     // Call to fetch Photo Details by ID 
     useEffect(() => {
@@ -109,7 +108,7 @@ const PhotoDetails = () => {
                                 </div>
 
                                 {/* Buttons */}
-                                <div className='relative flex gap-2 items-center justify-between'>
+                                <div className='relative flex gap-6 items-center justify-between'>
 
                                     {/* Share PopUp  */}
                                     <Share photodata={photodata} shareOpen={shareOpen} setShareOpen={setShareOpen} shareDropUpRef={shareDropUpRef} />
