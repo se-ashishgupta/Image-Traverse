@@ -17,13 +17,6 @@ const Search = () => {
         dispatch(searchPhotos(query));
     };
 
-    // Header Background Inline Style 
-    const headerBackgroundStyle = {
-        backgroundImage: `url(${searchBackground})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat"
-    };
 
     useEffect(() => {
         if (query == "") {
@@ -31,6 +24,14 @@ const Search = () => {
             console.log("ashsih");
         }
     }, [query]);
+
+    // Header Background Inline Style 
+    const headerBackgroundStyle = {
+        backgroundImage: `url(${searchBackground})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat"
+    };
 
     return (
         <div>

@@ -3,7 +3,7 @@ import { EmailIcon, EmailShareButton, FacebookIcon, FacebookShareButton, Pintere
 
 const Share = ({ photodata, shareOpen, setShareOpen, shareDropUpRef }) => {
 
-    // shareDropUpRef Menu Close Functionality
+    // shareDropup Menu Close Functionality
     useEffect(() => {
         function handleClickOutside(event) {
             if (shareDropUpRef.current && !shareDropUpRef.current.contains(event.target)) {

@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import logo from "../assets/logo.svg";
 import { Link } from 'react-router-dom';
 import { BiMenuAltRight } from "react-icons/bi";
 import { GrFormClose } from "react-icons/gr";
 
 const Header = () => {
-
-    const [openNav, setOpenNav] = useState(false);
-    const [activeNav, setActiveNav] = useState(location.pathname);
-
+    // Nav item 
     const navItem = [
         {
             title: "Home",
@@ -20,10 +17,8 @@ const Header = () => {
         }
     ];
 
-    const activeLinkHandler = (item) => {
-        setOpenNav(false);
-        setActiveNav(item.path);
-    };
+    const [openNav, setOpenNav] = useState(false);
+
 
     return (
         <>
@@ -31,7 +26,7 @@ const Header = () => {
             <div className='fixed top-0 left-0 bg-white w-full h-[4rem] shadow-xl px-4 md:px-10 flex items-center z-20 justify-between overflow-x-hidden overflow-hidden'>
 
                 {/* Logo  */}
-                <Link to={"/"} className='flex items-center gap-2 animate-slideRight' onClick={() => setActiveNav("/")} >
+                <Link to={"/"} className='flex items-center gap-2 animate-slideRight'  >
                     <img src={logo} alt="logo" className='w-[1.5rem] sm:w-[2rem]' />
                     <h1 className='text-lg sm:text-2xl font-extrabold'>Image Traverse</h1>
                 </Link>
@@ -40,16 +35,18 @@ const Header = () => {
                 <div className='hidden sm:flex items-center gap-3 md:gap-5'>
                     {
                         navItem.map((item, index) => (
-                            <Link key={index} to={item.path} onClick={() => setActiveNav(item.path)} className={` text-2xl  ${activeNav == item.path ? "text-black font-extrabold" : "text-gray-600 font-semibold"}`} >{item.title}</Link>
+                            <Link key={index} to={item.path} className={` text-2xl text-black font-medium`} >{item.title}</Link>
                         ))
                     }
 
                 </div>
 
                 {/* Menu Icon  */}
-                <figure className='text-4xl cursor-pointer sm:hidden  shadow-md p-1 rounded-lg' onClick={() => setOpenNav(!openNav)}>
-                    {openNav ? <GrFormClose /> : <BiMenuAltRight />}
-                </figure>
+                <div onClick={() => setOpenNav(!openNav)} className='text-4xl cursor-pointer sm:hidden  shadow-md rounded-lg' >
+                    <span className=''>
+                        {openNav ? <GrFormClose /> : <BiMenuAltRight />}
+                    </span>
+                </div>
 
             </div>
 
@@ -57,7 +54,7 @@ const Header = () => {
             <div className={`fixed top-0 right-0 w-full h-[25vh] bg-white z-10 pt-[5rem] p-6 ${openNav ? "" : "translate-y-[-100%]"} transition-all duration-300 flex flex-col gap-2`}>
                 {
                     navItem.map((item, index) => (
-                        <Link key={index} className={`text-2xl border-b-2 ${activeNav == item.path ? "text-black font-extrabold" : "text-gray-600 font-semibold"} `} to={item.path} onClick={() => activeLinkHandler(item)}>{item.title}</Link>
+                        <Link key={index} className={`text-2xl border-b-2 text-black font-medium `} to={item.path} onClick={() => setOpenNav(false)}>{item.title}</Link>
                     ))
                 }
             </div>
