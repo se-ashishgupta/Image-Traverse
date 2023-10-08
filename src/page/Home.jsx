@@ -1130,7 +1130,7 @@ const Home = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // dispatch(getRandomPhotos());
+        dispatch(getRandomPhotos());
     }, [dispatch]);
 
     return (

@@ -23,6 +23,7 @@ const Share = ({ photodata, shareOpen, setShareOpen, shareDropUpRef }) => {
     return (
         <div className={`absolute bottom-[125%] bg-white  shadow-lg px-2 rounded-lg ${shareOpen ? "h-max py-4 border-[1px]" : "h-0 py-0 border-0 "} flex  flex-col gap-2 transition-all overflow-hidden`}>
 
+            {/* Socila Media Icons For Sharing  */}
             <FacebookShareButton url={photodata.links.html} className='flex items-center gap-1 border-2' onClick={() => setShareOpen(false)}>
                 <FacebookIcon size={20} className='rounded-xl' />
                 <span className=' text-sm'>Facebook</span>

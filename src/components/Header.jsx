@@ -5,6 +5,7 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { GrFormClose } from "react-icons/gr";
 
 const Header = () => {
+
     const [openNav, setOpenNav] = useState(false);
     const [activeNav, setActiveNav] = useState(location.pathname);
 

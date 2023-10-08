@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchPhotos } from '../redux/action';
-import searchBackground from "../assets/bg.jpg";
+import searchBackground from "../assets/bg.png";
 import PhotoCard from "../components/PhotoCard";
 import Loader from '../components/Loader';
 
@@ -25,12 +25,12 @@ const Search = () => {
         backgroundRepeat: "no-repeat"
     };
 
-    // useEffect(() => {
-    //     if (query == "") {
-    //         dispatch(searchPhotos('random'));
-    //         console.log("ashsih");
-    //     }
-    // }, [query]);
+    useEffect(() => {
+        if (query == "") {
+            dispatch(searchPhotos('random'));
+            console.log("ashsih");
+        }
+    }, [query]);
 
     return (
         <div>
