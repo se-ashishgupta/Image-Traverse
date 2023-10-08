@@ -1134,9 +1134,9 @@ const Home = () => {
     }, [dispatch]);
 
     return (
-        <div>
+        <div className='overflow-hidden'>
 
-            <div style={headerBackgroundStyle} className=' min-h-[75vh] flex items-center justify-center shadow-xl'>
+            <div style={headerBackgroundStyle} className='min-h-[75vh] flex items-center justify-center shadow-xl'>
 
                 {/* Header Content  */}
                 <div className='p-4 md:p-16 sm:w-[80%] space-y-2 md:space-y-4 lg:space-y-6'>

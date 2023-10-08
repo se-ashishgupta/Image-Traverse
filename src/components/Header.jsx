@@ -27,7 +27,7 @@ const Header = () => {
     return (
         <>
             {/* Desktop Navbar  */}
-            <div className='fixed top-0 left-0 bg-white w-full h-[4rem] shadow-xl px-4 md:px-10 flex items-center z-20 justify-between'>
+            <div className='fixed top-0 left-0 bg-white w-full h-[4rem] shadow-xl px-4 md:px-10 flex items-center z-20 justify-between overflow-x-hidden overflow-hidden'>
 
                 {/* Logo  */}
                 <Link to={"/"} className='flex items-center gap-2 animate-slideRight' onClick={() => setActiveNav("/")} >

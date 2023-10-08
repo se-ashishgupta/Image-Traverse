@@ -3,11 +3,6 @@
     scroll-behavior: smooth;
 }
 
-
 ::-webkit-scrollbar {
     display: none;
-}
-
-body {
-    overflow-x: hidden;
 }
