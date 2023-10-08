@@ -22,7 +22,7 @@ const Home = () => {
 
     // Call to fetch Ranbdopm data 
     useEffect(() => {
-        dispatch(getRandomPhotos());
+        // dispatch(getRandomPhotos());
     }, [dispatch]);
 
     return (

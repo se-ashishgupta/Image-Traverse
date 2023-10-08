@@ -18,12 +18,12 @@ const Search = () => {
     };
 
 
-    useEffect(() => {
-        if (query == "") {
-            dispatch(searchPhotos('random'));
-            console.log("ashsih");
-        }
-    }, [query]);
+    // useEffect(() => {
+    //     if (query == "") {
+    //         dispatch(searchPhotos('random'));
+    //         console.log("ashsih");
+    //     }
+    // }, [query]);
 
     // Header Background Inline Style 
     const headerBackgroundStyle = {
@@ -38,18 +38,17 @@ const Search = () => {
 
             {/* Search Input  */}
             <div className='min-h-[75vh] w-full flex items-center justify-center shadow-xl' style={headerBackgroundStyle}>
-                <div className='w-[90%] sm:w-[60%] animate-slideUp '>
+                <form onSubmit={searchHandler} className='w-[90%] sm:w-[60%] animate-slideUp '>
                     <div className='relative flex items-center text-gray-400 focus-within:text-gray-600'>
                         <figure className='text-2xl absolute ml-3 pointer-events-none '><AiOutlineSearch /></figure>
-                        <form onSubmit={searchHandler} className='w-full' >
-                            <input type="text" name='serach' placeholder='Search Now...' autoComplete='off'
-                                className='w-full pr-3 pl-12 py-2 placeholder-gray-500 text-black rounded-lg outline-none ring-1 ring-gray-300 focus:shadow-lg '
-                                value={query}
-                                onChange={(e) => setQuery(e.target.value)}
-                            />
-                        </form>
+                        <input type="text" name='serach' placeholder='Search Now...' autoComplete='off'
+                            className='w-full pr-28 pl-12  py-2 placeholder-gray-500 text-black rounded-lg outline-none ring-1 ring-gray-300 focus:shadow-lg '
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
+                        />
+                        <button type='submit' className=' bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 absolute top-0 right-0 rounded-lg'>Search</button>
                     </div>
-                </div>
+                </form>
             </div>
 
 
