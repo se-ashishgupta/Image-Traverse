@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PhotoCard from '../components/PhotoCard';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../components/Loader';
-import homeBackground from "../assets/bg2.jpg";
+import homeBackground from "../assets/bg.jpg";
 import { getRandomPhotos, searchPhotos } from '../redux/action';
 import { AiOutlineSearch } from 'react-icons/ai';
 

@@ -7,17 +7,43 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchPhotoById } from '../redux/action';
 import Loader from '../components/Loader';
-import Share from '../components/Share';
+import { toBlob } from "html-to-image";
+import toast from 'react-hot-toast';
 
 const PhotoDetails = () => {
     const params = useParams();
-    const [shareOpen, setShareOpen] = useState(false);
-    const shareDropUpRef = useRef(null);
-
     const dispatch = useDispatch();
+    const imageRef = useRef(null);
 
     // Getting Data of Photo from Store
     const { loading, photodata } = useSelector(state => state.photos);
+
+    // Share Photo Functionality 
+    const sharePhotoHandler = async (name) => {
+        const imgUrl = await toBlob(imageRef.current);
+        console.log(imageRef.current);
+        const file = {
+            files: [
+                new File([imgUrl], `${name}.jpg`, {
+                    type: imgUrl.type,
+                }),
+            ],
+            title: `${name}`,
+            text: 'Check out this image!',
+        };
+
+        try {
+            if (navigator.share) {
+                await navigator.share(file);
+
+            } else {
+                toast.error("Can't share");
+            }
+        } catch (err) {
+            toast.error('Error sharing image:', err);
+        }
+
+    };
 
     // Call to fetch Photo Details by ID 
     useEffect(() => {
@@ -80,7 +106,7 @@ const PhotoDetails = () => {
                         {/* Photo View  */}
                         <div className='max-w-full h-[50vh] sm:h-[70vh] px-2 py-2 flex items-center justify-center
                         '>
-                            <img src={photodata.urls.full} alt={photodata.alt_description} className='max-w-full object-contain h-full  rounded-xl' />
+                            <img ref={imageRef} src={photodata.urls.small} alt={photodata.alt_description} className='max-w-full object-contain h-full  rounded-xl' />
                         </div>
 
                         {/* Photo Details  */}
@@ -106,26 +132,12 @@ const PhotoDetails = () => {
                                     </div>
                                 </div>
 
-                                {/* Buttons */}
-                                <div className='relative flex gap-6 items-center justify-between'>
 
-                                    {/* Share PopUp  */}
-                                    <Share photodata={photodata} shareOpen={shareOpen} setShareOpen={setShareOpen} shareDropUpRef={shareDropUpRef} />
-
-                                    {/* Share Button  */}
-                                    <button ref={shareDropUpRef} className='text-sm w-max flex items-center gap-1 border-2 p-2 rounded-sm hover:border-gray-500 transition-all duration-300' onClick={() => setShareOpen(!shareOpen)}>
-                                        <AiOutlineShareAlt />
-                                        <span> Share</span>
-                                    </button>
-
-                                    {/* Download Button  */}
-                                    <button className='text-lg  w-max text-white border-2 border-green-500 p-2 rounded-sm hover:text-black font-semibold bg-green-500 hover:bg-transparent transition-all duration-300'>
-                                        <a href={`${photodata.links.download}&amp;force=true`} download='unsplash_photo.jpg' t >
-                                            <span> <BsDownload /></span>
-                                        </a>
-                                    </button>
-
-                                </div>
+                                {/* Share Button  */}
+                                <button className='text-sm w-max flex items-center gap-1 border-2 p-2 rounded-sm hover:border-gray-500 transition-all duration-300' onClick={() => sharePhotoHandler(photodata.alt_description)}>
+                                    <AiOutlineShareAlt />
+                                    <span> Share</span>
+                                </button>
 
                             </section>
 
@@ -179,7 +191,7 @@ const PhotoDetails = () => {
                                                     <Link key={index} to={`/photo/${item.cover_photo.id}`}>
 
                                                         <div className='w-full h-[20rem] shadow-lg group overflow-hidden rounded-xl'>
-                                                            <img src={item.cover_photo.urls.full} alt={item.title} className='w-full h-full object-cover group-hover:scale-110 transition-all duration-500' />
+                                                            <img src={item.cover_photo.urls.small} alt={item.title} className='w-full h-full object-cover group-hover:scale-110 transition-all duration-500' />
                                                         </div>
 
                                                     </Link >
