@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { BsFillFileArrowDownFill, BsDownload } from 'react-icons/bs';
+import { BsDownload } from 'react-icons/bs';
 import { FcLike } from 'react-icons/fc';
+import { FaCloudDownloadAlt } from 'react-icons/fa';
 import { BiSolidUserCircle, BiSolidCity } from 'react-icons/bi';
 import { AiOutlineShareAlt, AiOutlineGlobal } from 'react-icons/ai';
 import { Link, useParams } from 'react-router-dom';
@@ -87,7 +88,7 @@ const PhotoDetails = () => {
                                 </span>
                                 <span className='hidden sm:flex items-center gap-1 '>
                                     <figure className=''>
-                                        <BsFillFileArrowDownFill />
+                                        <FaCloudDownloadAlt />
                                     </figure>
                                     <p>{photodata.downloads}</p>
                                 </span>

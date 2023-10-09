@@ -9,7 +9,7 @@ Weather App built with React.
 
 ## Tech Stack
 
-**React, React-Router-Dom, Redux, ReduxToolkit, JavaScript, Tailwind, React-Icons, Axios, React-Share**
+**React, React-Router-Dom, Redux, ReduxToolkit, JavaScript, Tailwind, React-Icons, Axios**
 
 ## Features
 
