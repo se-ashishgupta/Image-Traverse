@@ -2,6 +2,7 @@
 
 ![](src/assets/UI/ui1.png)
 ![](src/assets/UI/ui2.png)
+![](src/assets/UI/ui3.png)
 
 Weather App built with React.
 [Live Demo](https://image-traverse-unsplash.vercel.app)
